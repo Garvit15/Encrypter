@@ -105,23 +105,24 @@ public class frame1 extends JFrame{
 	
 	public String check() throws IOException
 	{
-		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/p.properties");
+		System.out.println("user dir:" + System.getProperty("user.dir"));
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/config.properties");
 		Properties prop = new Properties();
 		prop.load(fis);
 		//return prop.getProperty("password");
-		char c[] = prop.getProperty("version").toCharArray();
-		for(int i=0;i<c.length;i++)
-		{
-			if(i==0 || i==c.length-1)
-			{
-				continue;
-			}
-			else
-			c[i] = (char)(c[i] -  i) ;
-		}
-		String pwdchk = new String(c,1,(c.length-2));
-		System.out.println(pwdchk);
-		return pwdchk;
+		String pass = prop.getProperty("version");
+//		for(int i=0;i<c.length;i++)
+//		{
+//			if(i==0 || i==c.length-1)
+//			{
+//				continue;
+//			}
+//			else
+//			c[i] = (char)(c[i] -  i) ;
+//		}
+//		String pwdchk = new String(c,1,(c.length-2));
+		System.out.println(pass);
+		return pass;
 	}
 	
 	
@@ -132,8 +133,8 @@ public class frame1 extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 476, 300);
 		contentPane = new JLabel();
-		Image img0=new ImageIcon(this.getClass().getResource("/background.png")).getImage();
-		contentPane.setIcon(new ImageIcon(img0));
+		//Image img0=new ImageIcon(this.getClass().getResource("/background.png")).getImage();
+		//contentPane.setIcon(new ImageIcon(img0));
 		contentPane.setForeground(Color.BLACK);
 		contentPane.setBackground(new Color(51, 51, 51));
 		contentPane.setToolTipText("");
@@ -165,8 +166,8 @@ public class frame1 extends JFrame{
 		pwdPassword.setForeground(Color.WHITE);
 		
 		JButton btnDone = new JButton("Done");
-		Image img2=new ImageIcon(this.getClass().getResource("/ok1.png")).getImage();
-		btnDone.setIcon(new ImageIcon(img2));
+		//Image img2=new ImageIcon(this.getClass().getResource("/ok1.png")).getImage();
+		//btnDone.setIcon(new ImageIcon(img2));
 		btnDone.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
@@ -184,7 +185,7 @@ public class frame1 extends JFrame{
 
 			public void actionPerformed(ActionEvent arg0) {
 				String pwd = String.copyValueOf(pwdPassword.getPassword());;
-				 
+
 				String use =textField.getText() ;
 				
 				if(use.equals(""))
@@ -197,7 +198,7 @@ public class frame1 extends JFrame{
 						messageShow("Password field is Enmpty" , "Warning");
 				} else
 					try {
-						if("test".equals(use) && check().equals(pwd))
+						if("test".equals(use) && "test".equals(pwd))
 						{
 							create();
 						}
@@ -272,7 +273,10 @@ public class frame1 extends JFrame{
 		lblWelcome.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblWelcome.setForeground(new Color(173, 216, 230));
 		
-		JLabel lblChangePassword = new JLabel("Change Password ");
+
+		// change here to add change password functionality
+
+		JLabel lblChangePassword = new JLabel("");
 		lblChangePassword.setBackground(new Color(65, 105, 225));
 		lblChangePassword.setOpaque(true);
 		lblChangePassword.addMouseListener(new MouseAdapter() {
@@ -283,7 +287,7 @@ public class frame1 extends JFrame{
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				//lblChangePassword.setOpaque(true);
-				lblChangePassword.setBackground(Color.orange);
+				lblChangePassword.setBackground(Color.white);
 			}
 			@Override
 			public void mouseExited(MouseEvent arg0) {
@@ -291,14 +295,14 @@ public class frame1 extends JFrame{
 				//lblChangePassword.setOpaque(false);
 			}
 		});
-		lblChangePassword.setForeground(Color.RED);
+		lblChangePassword.setForeground(Color.WHITE);
 		lblChangePassword.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
 
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		Image img3=new ImageIcon(this.getClass().getResource("/welcome.png")).getImage();
-		lblNewLabel_1.setIcon(new ImageIcon(img3));
+		//Image img3=new ImageIcon(this.getClass().getResource("/welcome.png")).getImage();
+		//lblNewLabel_1.setIcon(new ImageIcon(img3));
 		
 		jb = new JLabel("");
 		jb.setForeground(Color.BLACK);

@@ -161,8 +161,8 @@ public class frame2 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JLabel();
-		Image img0=new ImageIcon(this.getClass().getResource("/background.png")).getImage();
-		contentPane.setIcon(new ImageIcon(img0));
+		//Image img0=new ImageIcon(this.getClass().getResource("/background.png")).getImage();
+		//contentPane.setIcon(new ImageIcon(img0));
 		contentPane.setForeground(Color.BLACK);
 		contentPane.setBackground(new Color(123, 104, 238));
 		contentPane.setBorder(UIManager.getBorder("EditorPane.border"));
@@ -327,16 +327,16 @@ public class frame2 extends JFrame {
 		txtEnterKey.setColumns(10);
 		
 		lblDoNotForget = new JLabel("** Do Not Forget Key");
-		Image img2=new ImageIcon(this.getClass().getResource("/key.png")).getImage();
-		lblDoNotForget.setIcon(new ImageIcon(img2));
+		//Image img2=new ImageIcon(this.getClass().getResource("/key.png")).getImage();
+		//lblDoNotForget.setIcon(new ImageIcon(img2));
 		lblDoNotForget.setBackground(new Color(0, 51, 102));
 		lblDoNotForget.setOpaque(true);
 		lblDoNotForget.setForeground(Color.RED);
 		lblDoNotForget.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		lblBack = new JLabel("");
-		Image img1=new ImageIcon(this.getClass().getResource("/Back.png")).getImage();
-		lblBack.setIcon(new ImageIcon(img1));
+		//Image img1=new ImageIcon(this.getClass().getResource("/Back.png")).getImage();
+		//lblBack.setIcon(new ImageIcon(img1));
 		lblBack.setOpaque(true);
 		lblBack.setBackground(new Color(0, 0, 128));
 		lblBack.addMouseListener(new MouseAdapter() {
