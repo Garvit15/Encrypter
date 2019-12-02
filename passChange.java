@@ -89,22 +89,22 @@ public class passChange extends JFrame {
 	public String check() throws IOException
 	{
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/p.properties");
+		System.out.println(fis);
 		Properties prop = new Properties();
 		prop.load(fis);
-		//return prop.getProperty("password");
-		char c[] = prop.getProperty("version").toCharArray();
-		for(int i=0;i<c.length;i++)
-		{
-			if(i==0 || i==c.length-1)
-			{
-				continue;
-			}
-			else
-			c[i] = (char)(c[i] -  i) ;
-		}
-		String pwdchk = new String(c,1,(c.length-2));
-		//System.out.println(pwdchk);
-		return pwdchk;
+		String s = prop.getProperty("version");
+//		for(int i=0;i<c.length;i++)
+//		{
+//			if(i==0 || i==c.length-1)
+//			{
+//				continue;
+//			}
+//			else
+//			c[i] = (char)(c[i] -  i) ;
+//		}
+//		String pwdchk = new String(c,1,(c.length-2));
+//		//System.out.println(pwdchk);
+		return s;
 	}
 	
 	
@@ -228,23 +228,8 @@ public class passChange extends JFrame {
 							fis.close();
 							
 							FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"/p.properties");
-							String s4 = String.valueOf(passwordField_2.getPassword());
-							char c[] = ("."+s4+".").toCharArray();
-							
-							for(int i=1;i<c.length;i++)
-							{
-								if(i==0 || i==(c.length-1))
-								{
-									continue;
-								}
-								else
-									{c[i] = (char)(c[i] +  i) ;}
-								System.out.println(""+c[i]);
-								
-							}
-							
-							String s5 = String.valueOf(c);
-							prop.setProperty("version", s5);
+							String pass = String.valueOf(passwordField_2.getPassword());
+							prop.setProperty("version", pass);
 							prop.store(fos, null);
 							fos.close();
 							messageShow("SUCCESS!!" , "Success");
